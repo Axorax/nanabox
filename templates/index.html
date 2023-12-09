@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nanabox</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='main.css') }}"
+    />
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='nanabox.ico') }}"
+    />
+  </head>
+  <body class="dropzone">
+    <nav class="flex-1">
+      <div>
+        <p class="title">nanabox</p>
+        <div class="dropdown">
+          <button>Select host</button>
+          <ul></ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="flex-1" id="upload">
+      <div class="flex-1 upload-main">
+        <input type="file" id="upload-file" title="" multiple />
+        <h1>UPLOAD</h1>
+      </div>
+      <div class="flex-1 loader" style="display: none">
+        <h1>UPLOADING</h1>
+        <div>
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="latest" class="flex-1"></section>
+
+    <section class="flex-1 history">
+      <div>
+        <div class="title">
+          <h2>History</h2>
+          <button onclick="clearHistory()">clear all</button>
+        </div>
+
+        <div id="history"></div>
+      </div>
+    </section>
+
+    <section class="flex-1" id="api">
+      <div>
+        <h2>Local API</h2>
+        <div class="accordin-wrapper">
+          <div class="accordin active">
+            <button>Use with terminal</button>
+            <div class="content" style="display: block">
+              <p>Windows</p>
+              <p class="code">
+                curl -X POST -F "file=@.\nanabox.json" "<span
+                  class="location"
+                ></span
+                >upload?host=anon"
+              </p>
+              <p>Linux & macOS</p>
+              <p class="code">
+                curl -X POST -F "file=@./nanabox.json" "<span
+                  class="location"
+                ></span
+                >upload?host=anon"
+              </p>
+            </div>
+          </div>
+          <hr />
+          <div class="accordin api-docs">
+            <button>API Documentation</button>
+            <div class="content">
+              <p>GET ▪ upload history</p>
+              <p class="code"><span class="location"></span>history</p>
+              <p>GET ▪ all host names</p>
+              <p class="code"><span class="location"></span>hosts</p>
+              <p>DELETE ▪ clear upload history</p>
+              <p class="code"><span class="location"></span>clear</p>
+              <p>POST ▪ upload a file</p>
+              <p class="code"><span class="location"></span>upload?host=anon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="flex-1">
+      <div>
+        <button onclick="openLogs()">view logs</button>
+        <p>patreon.com/axorax</p>
+      </div>
+    </footer>
+
+    <div class="popup">
+      <header>
+        <p>Add host</p>
+        <button onclick="toggleAddHostPopup()">x</button>
+      </header>
+      <div class="content">
+        <input type="text" placeholder="Name" id="new-host-name" />
+        <input
+          type="text"
+          placeholder="Lambda (lambda data: data['link'])"
+          id="new-host-lambda"
+        />
+        <button>Add host</button>
+      </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="modal">
+      <header>
+        <p>Logs</p>
+        <button onclick="closeLogs()">x</button>
+      </header>
+      <div class="content">
+        <div class="left">
+          <h3>Frontend</h3>
+          <div></div>
+        </div>
+        <div class="right">
+          <h3>Backend</h3>
+          <div></div>
+        </div>
+      </div>
+    </div>
+
+    <script defer src="{{ url_for('static', filename='main.js') }}"></script>
+  </body>
+</html>
