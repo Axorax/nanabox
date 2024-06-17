@@ -1,0 +1,29 @@
+{
+  "name": "nanabox",
+  "version": "1.0.0",
+  "description": "No login, fast and free file uploading",
+  "main": "_",
+  "scripts": {
+    "watch-scss": "sass --watch main.scss static/main.css --style=compressed --no-source-map",
+    "py": "python main.py",
+    "ts": "tsc --watch",
+    "dev": "concurrently \"npm run watch-scss\" \"npm run ts\" \"npm run py\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Axorax/nanabox.git"
+  },
+  "keywords": [
+    "nanabox"
+  ],
+  "author": "Axorax",
+  "license": "LGPL-2.1",
+  "bugs": {
+    "url": "https://github.com/Axorax/nanabox/issues"
+  },
+  "homepage": "https://github.com/Axorax/nanabox#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "sass": "^1.77.5"
+  }
+}
