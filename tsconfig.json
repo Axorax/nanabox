@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2021",
+    "outDir": "./static",
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["main.ts"]
+}

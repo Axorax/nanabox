@@ -1,0 +1,12 @@
+*env/
+dist/
+build/
+node_modules/
+nanabox.json
+package-lock.json
+LICENSE.txt
+*.spec
+*.css
+*.pyd
+*.js
+*.c
